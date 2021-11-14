@@ -4,13 +4,14 @@ import android.icu.text.DecimalFormat
 import android.icu.text.NumberFormat
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.io.Serializable
 import java.util.*
 
 class Room(
     val price : Int,
     val address : String,
     val floor : Int,
-    val description : String) {
+    val description : String) : Serializable{
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun getFormattedprice() : String{

@@ -1,5 +1,6 @@
 package com.kim.chapter8practice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.kim.chapter8practice.adapter.Roomadapter
@@ -29,11 +30,18 @@ class MainActivity : AppCompatActivity() {
         mRoomadapter = Roomadapter(this,R.layout.activity_room_list_item,mRoomList)
         roomListView.adapter = mRoomadapter
 
+        roomListView.setOnItemClickListener { parent, view, position, id ->
 
+            val clickedRoom = mRoomList[position]
+            val myIntent = Intent(this, view_room_detail::class.java)
+            myIntent.putExtra("room",clickedRoom)
 
+            startActivity(myIntent)
+        }
+
+        }
 
 
 
 
     }
-}
